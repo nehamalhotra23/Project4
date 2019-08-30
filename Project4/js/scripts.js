@@ -3,16 +3,12 @@ var sIze;
 var extraTopping;
 var newOrder = new Pizza();
 
-function Pizza(size) {
-  this.size;
-  this.price = 5;
+function Pizza() {
+  this.price = 0;
   this.toppings = 1;
 };
-Pizza.prototype.totalPrice = function(price) {
-    this.price += this.topping;
-     return this.price;
-     console.log(this.price);
-}
+
+
 
 //User Interface
 
@@ -21,11 +17,17 @@ $(document).ready(function() {
     event.preventDefault()
     sIze = $("#size").val();
     extraTopping = $("#topping").val();
-    console.log(extraTopping);
-     if(extraTopping === "Cheese" || size === "large"){
-       $("#totalprice").text(sIze + " " + extraTopping + " " + "$" + newOrder.totalPrice());
-  } if (extraTopping === "Pepperoni" || size === "large") {
-     $("#totalPrice").text(sIze + " " + extraTopping + " " + "$" + newOrder.totalPrice())
+
+
+     if(extraTopping === "Cheese" || extraTopping === "Pepperoni"  || extraTopping === "Artichoke" || size === "large"){
+       this.price =+ 10;
+       $("#totalprice").text(sIze + " " + extraTopping + " " + "$" + this.price) ;
+  } else if (extraTopping === "Pepperoni" || extraTopping === "Artichoke" || extraTopping === "Cheese" || size === "Medium") {
+      this.price =+ 15;
+     $("#totalprice").text(sIze + " " + extraTopping + " " + "$" + this.price);
+  } else if (extraTopping === "Pepperoni" || extraTopping === "Artichoke" || extraTopping === "Cheese" || size === "Regular"){
+      this.price =+ 20;
+    $("#totalprice").text(sIze + " " + extraTopping + " " + "$" + this.price);
   }
 
 
