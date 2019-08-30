@@ -1,24 +1,33 @@
 //Backend Logic
+var sIze;
+var extraTopping;
 
-function Pizza() {
-  this.toppings = [];
-  this.size = "";
+ function Pizza(size, toppings ) {
+  this.size = size;
+  this.toppings = toppings;
   this.price = 0;
 };
 
-Pizza.prototype.totalPrice = function(toppings) {
-  price += toppings;
-  return price;
+Pizza.prototype.totalPrice = function(price) {
+  this.price += this.toppings;
+  return this.price;
 }
 
+
 //User Interface
+
 $(document).ready(function() {
-  $("#placeOrder").submit(function() {
-    event.preventDefault()
-   $("#checkout").show();
-   var pizzaSize = $("#size").val()
-   var extraTopping = $("topping").val();
+  $("#placeOrder").click(function(event) {
+   event.preventDefault()
+     sIze = $("#size").val();
+    extraTopping = $("#topping").val();
 
-  })
+var newOrder = new Pizza(size);
+if(extraTopping === "Cheese") {
+  $("#totalprice").append("<li>" + extraTopping + "</li>");
+}
 
-})
+
+});
+
+});
